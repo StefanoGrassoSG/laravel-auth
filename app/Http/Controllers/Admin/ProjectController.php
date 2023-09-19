@@ -14,8 +14,10 @@ class ProjectController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
+    {   
+        $projects= Project::all();
+
+        return view('admin.index', compact('projects'));
     }
 
     /**
