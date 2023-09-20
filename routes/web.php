@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ProjectController;
 
 //controllers
 use App\Http\Controllers\Admin\DasboardController;
+use App\Http\Controllers\Admin\HomeAdminController;
 use App\http\controllers\PublicController;
 
 /*
@@ -26,6 +27,7 @@ Route::middleware(['auth', 'verified'])
     ->prefix('admin')
     ->group(function () {
     Route::get('/dashboard', [DasboardController::class, 'dashboard'])->name('dashboard');
+    Route::get('/home', [HomeAdminController::class, 'home'])->name('home');
     Route::resource('projects', ProjectController::class);
 });
 
