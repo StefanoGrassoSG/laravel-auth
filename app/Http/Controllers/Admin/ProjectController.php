@@ -28,7 +28,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.create');
     }
 
     /**
@@ -36,7 +36,27 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|max:70',
+            'description' => 'required|string',
+            'start_date' => 'required',
+            'end_date' => 'nullable',
+            'category' => 'required|max:50',
+            'languages' => 'required|max:255',
+            'project_status' => 'required|max:32'
+        ]);
+
+        $project = new Project();
+        $project->title = $request->input('title');
+        $project->description = $request->input('description');
+        $project->start_date = $request->input('start_date');
+        $project->end_date = $request->input('end_date');
+        $project->category = $request->input('category');
+        $project->languages = $request->input('languages');
+        $project->project_status = $request->input('project_status');
+        $project->save();
+
+        return redirect()->route('admin.projects.show', ['project' => $project->id]);
     }
 
     /**
@@ -68,6 +88,8 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+
+        return redirect()->route('admin.projects.index');
     }
 }

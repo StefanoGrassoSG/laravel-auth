@@ -27,7 +27,7 @@
                                 <a class="nav-link" href="{{ route('admin.projects.index') }}">Go to All Projects</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Link 3</a>
+                                <a class="nav-link" href="#">Ancora da fare</a>
                             </li>
                         </ul>
                         <form method="POST" action="{{ route('logout') }}">

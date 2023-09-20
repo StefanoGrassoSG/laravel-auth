@@ -5,6 +5,9 @@
 @section('main-content')
     <div class="row">
         <div class="col">
+            <div class="mb-3">
+                <a href="{{ route('admin.projects.create') }}" class="btn btn-success fs-4">+ ADD</a>
+            </div>
             <table class="table">
                 <thead>
                   <tr>
@@ -53,9 +56,18 @@
                                 <a class="btn btn-warning w-100 my-2" href="">
                                     Edit
                                 </a>
-                                <a class="btn btn-danger w-100" href="">
-                                    Delete
-                                </a>
+                                <form
+                                    action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}"
+                                    class="d-inline-block w-100"
+                                    method="POST"
+                                    onsubmit="return confirm('Sei sicuro di voler cancellare questo elemento?');">
+                                    @csrf
+                                    @method('DELETE')
+                                
+                                    <button type="submit" class="btn btn-danger w-100">
+                                        Delete
+                                    </button>
+                            </form>
                             </td>
                         </tr>
                     @endforeach
