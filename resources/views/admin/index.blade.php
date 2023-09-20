@@ -47,7 +47,7 @@
                                 {{ $project->project_status }}
                             </td>
                             <td>
-                                <a class="btn btn-primary w-100" href="">
+                                <a class="btn btn-primary w-100" href="{{ route('admin.projects.show', ['project' => $project]) }}">
                                     View details
                                 </a>
                                 <a class="btn btn-warning w-100 my-2" href="">
