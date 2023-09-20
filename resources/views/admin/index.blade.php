@@ -46,7 +46,17 @@
                             <td>
                                 {{ $project->project_status }}
                             </td>
-                            <td>PULSANTI</td>
+                            <td>
+                                <a class="btn btn-primary w-100" href="">
+                                    View details
+                                </a>
+                                <a class="btn btn-warning w-100 my-2" href="">
+                                    Edit
+                                </a>
+                                <a class="btn btn-danger w-100" href="">
+                                    Delete
+                                </a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

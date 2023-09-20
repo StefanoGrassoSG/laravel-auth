@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Project;
+
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
+
+//models
+use App\Models\Project;
 
 
 class ProjectController extends Controller
@@ -41,7 +44,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        
     }
 
     /**

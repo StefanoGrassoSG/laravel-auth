@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ProjectController;
 
 //controllers
 use App\Http\Controllers\Admin\DasboardController;
+use App\http\controllers\PublicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,7 @@ use App\Http\Controllers\Admin\DasboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PublicController::class, 'index'])->name('home');
 
 Route::middleware(['auth', 'verified'])
     ->name('admin.')
@@ -29,9 +28,5 @@ Route::middleware(['auth', 'verified'])
     Route::get('/dashboard', [DasboardController::class, 'dashboard'])->name('dashboard');
     Route::resource('projects', ProjectController::class);
 });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
